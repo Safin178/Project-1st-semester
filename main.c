@@ -74,7 +74,7 @@ void updatedata()
 {//ekon just update data te formality korte hobe
     system("CLS");
     getdata();
-
+    char temp;
     printf("Please Enter these info == >\n");
     printf("Name: ");
     scanf(" %[^\n]", a[n].name);
@@ -87,7 +87,10 @@ void updatedata()
      n++;
     writedata();
     fclose(fp);
+    printf("\n\nSign Up Done\n\n");
 
+         printf("Press Any key and Enter to get back\n");
+        scanf(" %c", &temp); 
 }
 
 void showdata()//formalities baki
@@ -203,8 +206,8 @@ void add2cart()
         sum += f[number-1].price;
     }
     //gotoxy(48,5 );
-    printf("You have to pay: ");
-    printf("%d", sum);
+    printf("You have to pay: %d tk",sum);
+    //printf("%d", sum);
     
 }
 
@@ -374,6 +377,7 @@ void admin()
              else if(c2 == 5)
              {
                 deletedata();
+                printf("\nUpdated Data\n");
                 printf("Press Any key and Enter to get back\n");
                scanf(" %c", &temp); 
              }
