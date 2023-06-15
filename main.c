@@ -71,7 +71,7 @@ void writedata()
 
 }
 void updatedata()
-{//ekon just update data te formality korte hobe
+{
     system("CLS");
     getdata();
     char temp;
@@ -93,7 +93,7 @@ void updatedata()
         scanf(" %c", &temp); 
 }
 
-void showdata()//formalities baki
+void showdata()
 {
     system("CLS");
     getdata();
@@ -113,9 +113,9 @@ void deletedata()
 {
     int d;
     system("CLS");
-    showdata();//showfood ei getdata ase..
+    showdata();
 
-    //gotoxy(25,0 );
+    
     printf("Which Number do you Want to delete: ");
     scanf("%d", &d);
     d--;
@@ -134,16 +134,6 @@ void deletedata()
       printf("Updated New Data\n");
       showdata();
 }
-
-
-
-
-
-
-
-
-
-
 //                       Food                      //
 
 void getfood()
@@ -187,27 +177,27 @@ void updatefood()
         scanf("%d", &f[l+i].price);
     }
     l+=m;
-    writefood();//baji eta temporary er theke beshi shohoz plus kom code..
+    writefood();
 
     fclose(fd);
 }
 
 void add2cart()
-{//formalities baki//
+{
     int j, itemnumber, sum = 0, number;
-    //gotoxy(48, 0);
+   
     printf("How many items do you want to buy: ");
     scanf("%d", &itemnumber);
-    printf("Please write the numbers of those items: ");
+    printf("Please write the numbers of those items[separately with spaces]: ");
     for(i = 0, j= 2 ; i < itemnumber; i++, j+=2)
     {
-        //gotoxy(48+i+j,3 );
+        
         scanf("%d", &number);
         sum += f[number-1].price;
     }
-    //gotoxy(48,5 );
-    printf("You have to pay: %d tk",sum);
-    //printf("%d", sum);
+    
+    printf("\nyou will have to pay: %d tk [cash on delivery]\n",sum);
+    printf("\nYou will recieve your order to your google map location in a few minutes(Superfast)\n");
     
 }
 
@@ -219,8 +209,8 @@ void showfood()
     for(i = 0; i < l; i++)
     {
         printf("%d. %s",i+1,f[i].foodname);
-        gotoxy(20, i+1);
-        printf("%d tk\n", f[i].price);
+        gotoxy(50 , i+1);
+        printf("%d tk(%d)\n", f[i].price, i+1);
     }
      printf("--------------\n");
 }
@@ -231,7 +221,7 @@ void deletefood()
     system("CLS");
     showfood();//showfood ei getfood ase..
 
-    //gotoxy(25,0 );
+  
     printf("Which Number do you Want to delete: ");
     scanf("%d", &d);
     d--;
@@ -247,14 +237,11 @@ void deletefood()
       system("CLS");
       showfood();
 }
-
-
-
-
-
 //                   end of Food                    //
 
-//                        hehe                      //
+
+
+
 
 //           login part of a Customer               //
 
@@ -285,7 +272,7 @@ void login()//formalities baki..
                     scanf("%s", tpass);
                     if(strcmp(a[i].password, tpass) == 0)
                     {
-                        printf("found you\n");
+                        //printf("found you\n");
                         showfood();
                         add2cart();
                         printf("\nPress Any key and Enter to get back OR press 0 to Exit\n");
@@ -332,11 +319,34 @@ void login()//formalities baki..
 //              End of login part                //
 void admin()
 {
-     int c2;
+     int c2,c3;
      char temp;
+     char p[26];
+     while(1)
+     {
+        system("CLS");
+        printf("Please, Give Your Password[Admin]: ");
+        scanf("%s", p);
+        if(strcmp(p,"admin123") == 0)
+        {
+            break;
+        }
+        else{
+             printf("Wrong Password\n");
+                printf("Do you want to :\n");
+                printf("\t1. Try again\n");
+                printf("\t2. Exit\n");
+                printf("Please choose your command -> ");
+                scanf("%d",&c3);
+                if(c3 == 2)
+                {
+                    return;
+                }
+        }
+     }
     while(1)
     {
-            system("CLS");
+        system("CLS");
        
         printf("Assalamualaikum , Admin\n");
         printf("\nWhat can i do for you?\n");
@@ -393,10 +403,10 @@ void credit()
     system("CLS");
     printf("\t\t\t\tThank You for using our service.\n\n\n");
     printf("\t\t\t\tA Project by :\n\n");
-    printf("\t\t\t\tAfrin Hasan Safin\n\t\t\t\t\tRoll: C231062\n");
-    printf("\t\t\t\tMASRUR AHMED CHOWDHURY\n\t\t\t\t\tRoll: C231080\n");
-    printf("\t\t\t\tAMMAR BIN MANJUR\n\t\t\t\t\tRoll: C231046\n");
-    printf("\t\t\t\tAlbar Hasan\n\t\t\t\t\tRoll: C231073\n");
+    printf("\t\t\t\tAfrin Hasan Safin\n\t\t\t\t\tRoll: C231062\n\n");
+    printf("\t\t\t\tMASRUR AHMED CHOWDHURY\n\t\t\t\t\tRoll: C231080\n\n");
+    printf("\t\t\t\tAMMAR BIN MANJUR\n\t\t\t\t\tRoll: C231046\n\n");
+    printf("\t\t\t\tAlbar Hasan\n\t\t\t\t\tRoll: C231073\n\n");
 
     exit(0);
 
@@ -415,15 +425,15 @@ int main()
     {
             system("CLS");
         
-        printf("WelCome to Foodbilla\n");
+        printf("WelCome to FOOD ENGINE\n\n");
 
-        printf("\\========================/\n");
-        
+        printf("<=========================>\n");
+        printf("You Have 4 option: \n\n");
         printf("1. Login\n");
         printf("2. Sign Up\n");
         printf("3. Admin\n");
-        printf("0. Exit\n");
-        printf("\nPlease choose your command -> ");
+        printf("0. Exit\n\n");
+        printf("Please choose your command -> ");
         scanf("%d", &choice);
             switch(choice)
             {
@@ -434,7 +444,7 @@ int main()
                 updatedata();
                 break;
             case 3:
-                admin();
+                admin();//pass:admin123
                 break;
             case 0:
                 credit();

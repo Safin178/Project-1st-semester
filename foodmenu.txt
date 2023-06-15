@@ -1,13 +1,29 @@
-5
-kutti
+14
+Chicken Roast
+140
+Plain polao
+99
+Firni
 60
-borfir
-32
-hati
-34
-kulfi banga
-200
-jalmuri
-300
-amm
-39
+Jorda
+60
+Borhani
+60
+Jafrani Sharbat
+80
+Cheesy Beef Burger Roll
+289
+Chicken Tikka Roll & Fries Combo
+499
+Cheese Chiken Roll
+299
+Beef Seekh Kebab Roll
+309
+Egg Chicken Reshmi Tikka Roll
+269
+Fries
+139
+Paratha-2 piece
+119
+Flavorful Rice 
+129
