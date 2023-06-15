@@ -3,6 +3,7 @@
 #include<windows.h>
 FILE *fp;
 FILE *fd;
+
 //Ignore THIS PART....
 void gotoxy(int x, int y)
 {
@@ -12,17 +13,20 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 //  this part is copied from Google..
- void getdata();
- void writedata();
+
+void getdata();
+void writedata();
 void updatedata();
 void showdata();
 void getfood();
 void writefood();
 void updatefood();
 void showfood();
+void deletedata();
 void deletefood();
 void login();
 void credit();
+void add2cart();
 struct customer
 {
     char name[24];
@@ -70,7 +74,7 @@ void writedata()
 
 
 }
-void updatedata()
+void updatedata()//this is sign up
 {
     system("CLS");
     getdata();
@@ -78,16 +82,16 @@ void updatedata()
     printf("Please Enter these info == >\n");
     printf("Name: ");
     scanf(" %[^\n]", a[n].name);
-    printf("\nUsername: ");
+    printf("\nUsername[Without spaces]: ");
     scanf("%s", a[n].username);
     printf("\nPhone Number: ");
     scanf("%s", a[n].pnum);
-    printf("\nPassword: ");
+    printf("\nPassword[Without spaces]: ");
     scanf("%s", a[n].password);
      n++;
     writedata();
     fclose(fp);
-    printf("\n\nSign Up Done\n\n");
+    printf("\n\n----Sign Up Done-----\n\n");
 
          printf("Press Any key and Enter to get back\n");
         scanf(" %c", &temp); 
@@ -256,7 +260,7 @@ void login()//formalities baki..
     {
         system("CLS");
         printf("Please login == >\n");
-        printf("Username: ");
+        printf("Username[Without spaces]: ");
         scanf("%s", tuser);
 
         for(i = 0; i < n; i++)
@@ -268,7 +272,7 @@ void login()//formalities baki..
                     system("CLS");
                     printf("We Found Your Username\n");
                     printf("Username: %s\n", tuser);
-                    printf("Password: ");
+                    printf("Password[Without spaces]: ");
                     scanf("%s", tpass);
                     if(strcmp(a[i].password, tpass) == 0)
                     {
